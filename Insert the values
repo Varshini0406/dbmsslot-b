@@ -1,0 +1,14 @@
+CREATE TABLE students (
+  Id INTEGER PRIMARY KEY,
+  Name TEXT NOT NULL,
+  Gender TEXT NOT NULL,
+  Age TEXT NOT NULL,
+  City TEXT NOT NULL
+);
+INSERT INTO students VALUES (1, 'Ryan', 'M','18','Boston' );
+INSERT INTO students VALUES (2, 'Joanna', 'F','17','New york');
+INSERT INTO students VALUES (3, 'Jordan', 'M','18','New york');
+INSERT INTO students VALUES (4, 'Atlas', 'M','17','Boston');
+INSERT INTO students VALUES (5, 'Lily', 'F','16','Boston');
+INSERT INTO students VALUES (6, 'Ryle', 'M', '17', 'Boston');
+SELECT * FROM students WHERE gender = 'M';
