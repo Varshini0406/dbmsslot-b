@@ -1,0 +1,14 @@
+CREATE TEMPORARY TABLE tmp (
+        article INT(4) UNSIGNED ZEROFILL DEFAULT '0000' NOT NULL,
+        price   DOUBLE(16,2)             DEFAULT '0.00' NOT NULL);
+
+LOCK TABLES shop read;
+
+INSERT INTO tmp SELECT article, MAX(price) FROM shop GROUP BY article;
+
+SELECT shop.article, dealer, shop.price FROM shop, tmp
+WHERE shop.article=tmp.article AND shop.price=tmp.price;
+
+UNLOCK TABLES;
+
+DROP TABLE tmp;
